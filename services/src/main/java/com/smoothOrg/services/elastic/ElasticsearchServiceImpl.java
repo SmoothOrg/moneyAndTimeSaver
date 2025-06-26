@@ -3,8 +3,17 @@ package com.smoothOrg.services.elastic;
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.elasticsearch.core.GetRequest;
 import co.elastic.clients.elasticsearch.core.GetResponse;
+import co.elastic.clients.elasticsearch.core.SearchRequest;
+import co.elastic.clients.elasticsearch.core.SearchResponse;
+import co.elastic.clients.elasticsearch.core.search.Hit;
 import co.elastic.clients.elasticsearch.indices.CreateIndexRequest;
 import co.elastic.clients.elasticsearch.indices.CreateIndexResponse;
+import co.elastic.clients.elasticsearch.indices.GetMappingRequest;
+import co.elastic.clients.elasticsearch.indices.GetMappingResponse;
+import co.elastic.clients.elasticsearch.indices.IndexState;
+import co.elastic.clients.elasticsearch.cat.IndicesRequest;
+import co.elastic.clients.elasticsearch.cat.IndicesResponse;
+import co.elastic.clients.elasticsearch.cat.IndicesRecord;
 import co.elastic.clients.elasticsearch.indices.PutMappingRequest;
 import co.elastic.clients.elasticsearch.indices.PutMappingResponse;
 import co.elastic.clients.json.JsonData;
@@ -13,6 +22,8 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ElasticsearchServiceImpl implements ElasticsearchService {
@@ -54,5 +65,43 @@ public class ElasticsearchServiceImpl implements ElasticsearchService {
             return response.source().to(String.class);
         }
         return null;
+    }
+
+    @Override
+    public List<String> getAllIndices() throws IOException {
+        IndicesRequest request = new IndicesRequest.Builder().build();
+        IndicesResponse response = client.cat().indices(request);
+        List<String> indices = new ArrayList<>();
+        for (IndicesRecord record : response.valueBody()) {
+            indices.add(record.index());
+        }
+        return indices;
+    }
+
+    @Override
+    public String getMapping(String index) throws IOException {
+        GetMappingRequest request = new GetMappingRequest.Builder()
+                .index(index)
+                .build();
+        GetMappingResponse response = client.indices().getMapping(request);
+        IndexState state = response.result().get(index);
+        if (state != null && state.mappings() != null) {
+            return state.mappings().toString();
+        }
+        return null;
+    }
+
+    @Override
+    public List<String> getAllDocuments(String index) throws IOException {
+        SearchRequest request = new SearchRequest.Builder()
+                .index(index)
+                .query(q -> q.matchAll(m -> m))
+                .build();
+        SearchResponse<JsonData> response = client.search(request, JsonData.class);
+        List<String> results = new ArrayList<>();
+        for (Hit<JsonData> hit : response.hits().hits()) {
+            results.add(hit.source().to(String.class));
+        }
+        return results;
     }
 }
