@@ -17,6 +17,7 @@ import co.elastic.clients.elasticsearch.cat.IndicesResponse;
 import co.elastic.clients.elasticsearch.indices.PutMappingRequest;
 import co.elastic.clients.elasticsearch.indices.PutMappingResponse;
 import co.elastic.clients.json.JsonData;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ElasticsearchServiceImpl implements ElasticsearchService {
@@ -98,12 +100,20 @@ public class ElasticsearchServiceImpl implements ElasticsearchService {
                 .index(index)
                 .query(q -> q.matchAll(m -> m))
                 .build();
+
         SearchResponse<JsonData> response = client.search(request, JsonData.class);
         List<String> results = new ArrayList<>();
+        ObjectMapper mapper = new ObjectMapper();  // Jackson object mapper
+
         for (Hit<JsonData> hit : response.hits().hits()) {
-            // Add each hit's source JSON to the results.
-            results.add(hit.source().toString());
+            // Convert JsonData to Map
+            Map<String, Object> map = hit.source().to(Map.class);
+            // Convert map to JSON string
+            String json = mapper.writeValueAsString(map);
+            results.add(json);
         }
+
         return results;
     }
+
 }
