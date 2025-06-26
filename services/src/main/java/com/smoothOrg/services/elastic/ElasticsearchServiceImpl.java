@@ -62,7 +62,7 @@ public class ElasticsearchServiceImpl implements ElasticsearchService {
                 .build();
         GetResponse<JsonData> response = client.get(request, JsonData.class);
         if (response.found()) {
-            return response.source().to(String.class);
+            return response.source().toString();
         }
         return null;
     }
@@ -100,7 +100,7 @@ public class ElasticsearchServiceImpl implements ElasticsearchService {
         SearchResponse<JsonData> response = client.search(request, JsonData.class);
         List<String> results = new ArrayList<>();
         for (Hit<JsonData> hit : response.hits().hits()) {
-            results.add(hit.source().to(String.class));
+            results.add(hit.source().toString());
         }
         return results;
     }
