@@ -62,10 +62,8 @@ public class ElasticsearchServiceImpl implements ElasticsearchService {
                 .build();
         GetResponse<JsonData> response = client.get(request, JsonData.class);
         if (response.found()) {
-            // Convert the JsonData payload to a JSON string rather than
-            // relying on the default toString implementation which only
-            // prints the underlying buffer object.
-            return response.source().to(String.class);
+            // Convert the JsonData payload to its JSON representation.
+            return response.source().toString();
         }
         return null;
     }
@@ -103,8 +101,8 @@ public class ElasticsearchServiceImpl implements ElasticsearchService {
         SearchResponse<JsonData> response = client.search(request, JsonData.class);
         List<String> results = new ArrayList<>();
         for (Hit<JsonData> hit : response.hits().hits()) {
-            // Convert each hit's JsonData into a JSON string.
-            results.add(hit.source().to(String.class));
+            // Add each hit's source JSON to the results.
+            results.add(hit.source().toString());
         }
         return results;
     }
