@@ -10,7 +10,7 @@ import co.elastic.clients.elasticsearch.indices.CreateIndexRequest;
 import co.elastic.clients.elasticsearch.indices.CreateIndexResponse;
 import co.elastic.clients.elasticsearch.indices.GetMappingRequest;
 import co.elastic.clients.elasticsearch.indices.GetMappingResponse;
-import co.elastic.clients.elasticsearch.indices.IndexState;
+import co.elastic.clients.elasticsearch.indices.get_mapping.IndexMappingRecord;
 import co.elastic.clients.elasticsearch.cat.IndicesRequest;
 import co.elastic.clients.elasticsearch.cat.IndicesResponse;
 import co.elastic.clients.elasticsearch.cat.IndicesRecord;
@@ -84,9 +84,9 @@ public class ElasticsearchServiceImpl implements ElasticsearchService {
                 .index(index)
                 .build();
         GetMappingResponse response = client.indices().getMapping(request);
-        IndexState state = response.result().get(index);
-        if (state != null && state.mappings() != null) {
-            return state.mappings().toString();
+        IndexMappingRecord record = response.result().get(index);
+        if (record != null && record.mappings() != null) {
+            return record.mappings().toString();
         }
         return null;
     }
