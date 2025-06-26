@@ -8,4 +8,19 @@ public interface ElasticsearchService {
     boolean updateMapping(String index, String mappingJson) throws IOException;
 
     String getDocument(String index, String id) throws IOException;
+
+    /**
+     * Retrieve the names of all indices in the cluster.
+     */
+    java.util.List<String> getAllIndices() throws IOException;
+
+    /**
+     * Retrieve the mapping for the given index as a JSON string.
+     */
+    String getMapping(String index) throws IOException;
+
+    /**
+     * Retrieve all documents from the given index as JSON strings.
+     */
+    java.util.List<String> getAllDocuments(String index) throws IOException;
 }
