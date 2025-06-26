@@ -10,6 +10,7 @@
         <dependency>
             <groupId>com.smoothOrg</groupId>
             <artifactId>domain</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
