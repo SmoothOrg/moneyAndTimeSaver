@@ -1,12 +1,17 @@
 package com.smoothOrg.services.elastic;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.Result;
 import co.elastic.clients.elasticsearch.cat.indices.IndicesRecord;
 import co.elastic.clients.elasticsearch.core.GetRequest;
 import co.elastic.clients.elasticsearch.core.GetResponse;
+import co.elastic.clients.elasticsearch.core.IndexRequest;
+import co.elastic.clients.elasticsearch.core.IndexResponse;
 import co.elastic.clients.elasticsearch.core.SearchRequest;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
+import co.elastic.clients.elasticsearch.core.DeleteRequest;
+import co.elastic.clients.elasticsearch.core.DeleteResponse;
 import co.elastic.clients.elasticsearch.indices.CreateIndexRequest;
 import co.elastic.clients.elasticsearch.indices.CreateIndexResponse;
 import co.elastic.clients.elasticsearch.indices.GetMappingRequest;
@@ -68,6 +73,28 @@ public class ElasticsearchServiceImpl implements ElasticsearchService {
             return response.source().toString();
         }
         return null;
+    }
+
+    @Override
+    public boolean indexDocument(String index, String id, Map<String, Object> document) throws IOException {
+        IndexRequest<Map<String, Object>> request = new IndexRequest.Builder<Map<String, Object>>()
+                .index(index)
+                .id(id)
+                .document(document)
+                .build();
+        IndexResponse response = client.index(request);
+        Result result = response.result();
+        return result == Result.Created || result == Result.Updated;
+    }
+
+    @Override
+    public boolean deleteDocument(String index, String id) throws IOException {
+        DeleteRequest request = new DeleteRequest.Builder()
+                .index(index)
+                .id(id)
+                .build();
+        DeleteResponse response = client.delete(request);
+        return response.result() == Result.Deleted;
     }
 
     @Override
