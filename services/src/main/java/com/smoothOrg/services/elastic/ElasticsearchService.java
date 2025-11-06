@@ -1,6 +1,7 @@
 package com.smoothOrg.services.elastic;
 
 import java.io.IOException;
+import java.util.Map;
 
 public interface ElasticsearchService {
     boolean createIndex(String index) throws IOException;
@@ -8,6 +9,10 @@ public interface ElasticsearchService {
     boolean updateMapping(String index, String mappingJson) throws IOException;
 
     String getDocument(String index, String id) throws IOException;
+
+    boolean indexDocument(String index, String id, Map<String, Object> document) throws IOException;
+
+    boolean deleteDocument(String index, String id) throws IOException;
 
     /**
      * Retrieve the names of all indices in the cluster.

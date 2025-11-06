@@ -1,13 +1,11 @@
 package com.smoothOrg.moneyAndTimeSaver.controller;
 
 import com.smoothOrg.services.elastic.ElasticsearchService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/elastic")
@@ -37,5 +35,17 @@ public class ElasticsearchController {
     @GetMapping("/indices/{index}/documents/{id}")
     public String getDocument(@PathVariable String index, @PathVariable String id) throws IOException {
         return elasticsearchService.getDocument(index, id);
+    }
+
+    @PostMapping("/indices/{index}/documents/{id}")
+    public boolean indexDocument(@PathVariable String index,
+                                 @PathVariable String id,
+                                 @RequestBody Map<String, Object> document) throws IOException {
+        return elasticsearchService.indexDocument(index, id, document);
+    }
+
+    @DeleteMapping("/indices/{index}/documents/{id}")
+    public boolean deleteDocument(@PathVariable String index, @PathVariable String id) throws IOException {
+        return elasticsearchService.deleteDocument(index, id);
     }
 }
