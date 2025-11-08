@@ -22,7 +22,6 @@ import co.elastic.clients.elasticsearch.cat.IndicesResponse;
 import co.elastic.clients.elasticsearch.indices.PutMappingRequest;
 import co.elastic.clients.elasticsearch.indices.PutMappingResponse;
 import co.elastic.clients.json.JsonData;
-import co.elastic.clients.elasticsearch._types.query_dsl.MultiMatchQueryType;
 import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -180,7 +179,6 @@ public class ElasticsearchServiceImpl implements ElasticsearchService {
                         "description",
                         "ingredients",
                         "ingredients.ngram"))
-                .type(MultiMatchQueryType.BestFields)
                 .fuzziness("AUTO")));
     }
 
