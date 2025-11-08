@@ -28,4 +28,25 @@ public interface ElasticsearchService {
      * Retrieve all documents from the given index as JSON strings.
      */
     java.util.List<String> getAllDocuments(String index) throws IOException;
+
+    /**
+     * Perform a text based product search across commonly used product fields.
+     *
+     * @param index the index to search
+     * @param query the free-text query provided by the user
+     * @param size  optional number of documents to return (defaults applied by caller)
+     * @return the matching documents as maps containing their original fields
+     */
+    java.util.List<java.util.Map<String, Object>> searchProducts(String index, String query, Integer size) throws IOException;
+
+    /**
+     * Perform a text search for products limited to a specific geohash bucket.
+     *
+     * @param index   the index to search
+     * @param query   the free-text query provided by the user
+     * @param geohash the geohash code that should be matched
+     * @param size    optional number of documents to return (defaults applied by caller)
+     * @return the matching documents as maps containing their original fields
+     */
+    java.util.List<java.util.Map<String, Object>> searchProductsByGeohash(String index, String query, String geohash, Integer size) throws IOException;
 }
