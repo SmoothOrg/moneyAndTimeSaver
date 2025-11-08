@@ -7,11 +7,11 @@ import co.elastic.clients.elasticsearch.core.GetRequest;
 import co.elastic.clients.elasticsearch.core.GetResponse;
 import co.elastic.clients.elasticsearch.core.IndexRequest;
 import co.elastic.clients.elasticsearch.core.IndexResponse;
-import co.elastic.clients.elasticsearch.core.SearchRequest;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
 import co.elastic.clients.elasticsearch.core.DeleteRequest;
 import co.elastic.clients.elasticsearch.core.DeleteResponse;
+import co.elastic.clients.elasticsearch.core.SearchRequest;
 import co.elastic.clients.elasticsearch.indices.CreateIndexRequest;
 import co.elastic.clients.elasticsearch.indices.CreateIndexResponse;
 import co.elastic.clients.elasticsearch.indices.GetMappingRequest;
@@ -22,6 +22,8 @@ import co.elastic.clients.elasticsearch.cat.IndicesResponse;
 import co.elastic.clients.elasticsearch.indices.PutMappingRequest;
 import co.elastic.clients.elasticsearch.indices.PutMappingResponse;
 import co.elastic.clients.json.JsonData;
+import co.elastic.clients.elasticsearch._types.query_dsl.MultiMatchQueryType;
+import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +31,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -138,6 +141,69 @@ public class ElasticsearchServiceImpl implements ElasticsearchService {
             // Convert map to JSON string
             String json = mapper.writeValueAsString(map);
             results.add(json);
+        }
+
+        return results;
+    }
+
+    @Override
+    public List<Map<String, Object>> searchProducts(String index, String query, Integer size) throws IOException {
+        Query textQuery = buildTextQuery(query);
+        return executeSearch(index, textQuery, size);
+    }
+
+    @Override
+    public List<Map<String, Object>> searchProductsByGeohash(String index, String query, String geohash, Integer size) throws IOException {
+        Query textQuery = buildTextQuery(query);
+        Query geohashFilter = Query.of(q -> q.term(t -> t.field("geohash").value(v -> v.stringValue(geohash))));
+
+        Query combined = Query.of(q -> q.bool(b -> b
+                .must(textQuery)
+                .filter(geohashFilter)));
+
+        return executeSearch(index, combined, size);
+    }
+
+    private Query buildTextQuery(String query) {
+        return Query.of(q -> q.multiMatch(mm -> mm
+                .query(query)
+                .fields(List.of(
+                        "product_name^4",
+                        "product_name.ngram^2",
+                        "brand_name^2",
+                        "brand_name.ngram",
+                        "categories^2",
+                        "categories.ngram",
+                        "sub_categories",
+                        "breadcrumbs",
+                        "breadcrumbs.ngram",
+                        "description",
+                        "ingredients",
+                        "ingredients.ngram"))
+                .type(MultiMatchQueryType.BestFields)
+                .fuzziness("AUTO")));
+    }
+
+    private List<Map<String, Object>> executeSearch(String index, Query query, Integer size) throws IOException {
+        SearchRequest.Builder requestBuilder = new SearchRequest.Builder()
+                .index(index)
+                .query(query);
+
+        if (size != null && size > 0) {
+            requestBuilder.size(size);
+        }
+
+        SearchResponse<JsonData> response = client.search(requestBuilder.build(), JsonData.class);
+
+        List<Map<String, Object>> results = new ArrayList<>();
+        for (Hit<JsonData> hit : response.hits().hits()) {
+            JsonData source = hit.source();
+            if (source != null) {
+                Map<String, Object> document = source.to(Map.class);
+                Map<String, Object> enriched = new LinkedHashMap<>(document);
+                enriched.put("_score", hit.score());
+                results.add(enriched);
+            }
         }
 
         return results;
