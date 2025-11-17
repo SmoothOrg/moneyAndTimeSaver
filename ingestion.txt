@@ -1,0 +1,387 @@
+PUT grocery_products_v1
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 1,
+    "refresh_interval": "1s",
+    "max_result_window": 200000,
+
+    "analysis": {
+      "tokenizer": {
+        "ngram_tokenizer": {
+          "type": "ngram",
+          "min_gram": 2,
+          "max_gram": 15,
+          "token_chars": [
+            "letter",
+            "digit",
+            "whitespace"
+          ]
+        }
+      },
+      "analyzer": {
+        "ngram_analyzer": {
+          "type": "custom",
+          "tokenizer": "ngram_tokenizer",
+          "filter": [
+            "lowercase",
+            "asciifolding"
+          ]
+        },
+        "standard_analyzer": {
+          "type": "standard",
+          "stopwords": "_english_"
+        }
+      },
+      "normalizer": {
+        "lowercase_normalizer": {
+          "type": "custom",
+          "filter": [
+            "lowercase",
+            "asciifolding"
+          ]
+        }
+      }
+    },
+
+    "index.max_ngram_diff": 13,
+    "index.mapping.total_fields.limit": 2000
+  },
+
+  "mappings": {
+    "dynamic": true,
+    "dynamic_templates": [
+      {
+        "ids_and_codes_as_keyword": {
+          "match_mapping_type": "string",
+          "match": "*id",
+          "mapping": {
+            "type": "keyword",
+            "normalizer": "lowercase_normalizer"
+          }
+        }
+      },
+      {
+        "generic_strings": {
+          "match_mapping_type": "string",
+          "mapping": {
+            "type": "keyword",
+            "normalizer": "lowercase_normalizer"
+          }
+        }
+      }
+    ],
+    "properties": {
+      "platform": {
+        "type": "keyword",
+        "normalizer": "lowercase_normalizer"
+      },
+
+      "product_id": {
+        "type": "keyword",
+        "normalizer": "lowercase_normalizer"
+      },
+
+      "product_url": {
+        "type": "keyword"
+      },
+
+      "image_url": {
+        "type": "keyword"
+      },
+
+      "product_name": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256,
+            "normalizer": "lowercase_normalizer"
+          },
+          "ngram": {
+            "type": "text",
+            "analyzer": "ngram_analyzer",
+            "search_analyzer": "standard_analyzer"
+          }
+        }
+      },
+
+      "brand_name": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256,
+            "normalizer": "lowercase_normalizer"
+          },
+          "ngram": {
+            "type": "text",
+            "analyzer": "ngram_analyzer",
+            "search_analyzer": "standard_analyzer"
+          }
+        }
+      },
+
+      "categories": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256,
+            "normalizer": "lowercase_normalizer"
+          },
+          "ngram": {
+            "type": "text",
+            "analyzer": "ngram_analyzer",
+            "search_analyzer": "standard_analyzer"
+          }
+        }
+      },
+
+      "sub_categories": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256,
+            "normalizer": "lowercase_normalizer"
+          },
+          "ngram": {
+            "type": "text",
+            "analyzer": "ngram_analyzer",
+            "search_analyzer": "standard_analyzer"
+          }
+        }
+      },
+
+      "breadcrumbs": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 512,
+            "normalizer": "lowercase_normalizer"
+          },
+          "ngram": {
+            "type": "text",
+            "analyzer": "ngram_analyzer",
+            "search_analyzer": "standard_analyzer"
+          }
+        }
+      },
+
+      "description": {
+        "type": "text",
+        "analyzer": "standard_analyzer"
+      },
+
+      "nutritional_info": {
+        "type": "text",
+        "analyzer": "standard_analyzer"
+      },
+
+      "ingredients": {
+        "type": "text",
+        "fields": {
+          "ngram": {
+            "type": "text",
+            "analyzer": "ngram_analyzer",
+            "search_analyzer": "standard_analyzer"
+          }
+        }
+      },
+
+      "quantity": {
+        "type": "keyword",
+        "normalizer": "lowercase_normalizer"
+      },
+
+      "mrp": {
+        "type": "double"
+      },
+
+      "selling_price": {
+        "type": "double"
+      },
+
+      "discount_percent": {
+        "type": "double"
+      },
+
+      "discount_text": {
+        "type": "keyword",
+        "normalizer": "lowercase_normalizer"
+      },
+
+      "stock_status": {
+        "type": "keyword",
+        "normalizer": "lowercase_normalizer"
+      },
+
+      "availability": {
+        "type": "boolean"
+      },
+
+      "merchant_id": {
+        "type": "long"
+      },
+
+      "inventory": {
+        "type": "integer"
+      },
+
+      "pincode": {
+        "type": "keyword"
+      },
+
+      "city": {
+        "type": "keyword",
+        "normalizer": "lowercase_normalizer"
+      },
+
+      "country_of_origin": {
+        "type": "keyword",
+        "normalizer": "lowercase_normalizer"
+      },
+
+      "shelf_life": {
+        "type": "keyword",
+        "normalizer": "lowercase_normalizer"
+      },
+
+      "fssai_license": {
+        "type": "keyword",
+        "normalizer": "lowercase_normalizer"
+      },
+
+      "manufacturer_name": {
+        "type": "keyword",
+        "normalizer": "lowercase_normalizer"
+      },
+
+      "manufacturer_address": {
+        "type": "text",
+        "analyzer": "standard_analyzer"
+      },
+
+      "how_to_use": {
+        "type": "text",
+        "analyzer": "standard_analyzer"
+      },
+
+      "product_details": {
+        "type": "text",
+        "analyzer": "standard_analyzer"
+      },
+
+      "product_attributes": {
+        "type": "object",
+        "dynamic": true
+      },
+
+      "geohash": {
+        "type": "keyword"
+      },
+
+      "location": {
+        "type": "geo_point"
+      },
+
+      "created_at": {
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      },
+
+      "updated_at": {
+        "type": "date",
+        "format": "strict_date_optional_time||epoch_millis"
+      }
+    }
+  }
+}
+
+POST grocery_products_v1/_doc/swiggy_7HYSGXOZ4T
+{
+  "platform": "swiggy_instamart",
+  "product_id": "7HYSGXOZ4T",
+  "product_name": "Sundrop Peanut Butter With Jelly (Grape)",
+  "brand_name": "Sundrop",
+  "categories": "Spreads & Dips",
+  "sub_categories": "Peanut Butter",
+  "product_url": "https://www.swiggy.com/instamart/item/7HYSGXOZ4T",
+  "image_url": "https://instamart-media-assets.swiggy.com/swiggy-peanut-butter.png",
+  "quantity": "340 g",
+  "mrp": 150.0,
+  "selling_price": 135.0,
+  "discount_percent": 10.0,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 810368,
+  "inventory": 5,
+  "pincode": "110057",
+  "city": "new_delhi",
+
+  "geohash": "ttnt7u5p9",          // sample
+  "location": "28.5687,77.1886",   // sample lat,lon for 110057
+
+  "created_at": "2025-11-08T10:10:00Z",
+  "updated_at": "2025-11-08T10:10:00Z"
+}
+
+POST grocery_products_v1/_doc/blinkit_477345
+{
+  "platform": "blinkit",
+  "product_id": "477345",
+  "product_name": "Mee Mee Tooth & Gum Cleaning Green Finger Baby Toothbrush",
+  "brand_name": "Mee Mee",
+  "categories": "Baby Care",
+  "sub_categories": "Oral Care",
+  "breadcrumbs": "Home | Baby Care | Oral Care | Mee Mee Tooth & Gum Cleaning Green Finger Baby Toothbrush",
+  "product_url": "https://blinkit.com/prn/mee-mee-tooth-gum-cleaning-green-finger-baby-toothbrush/prid/477345",
+  "image_url": "https://cdn.grofers.com/mee-mee-toothbrush.png",
+  "quantity": "1 piece",
+  "mrp": 99.0,
+  "selling_price": 84.0,
+  "discount_text": "15% OFF",
+  "stock_status": "in_stock",
+  "pincode": "560056",
+  "city": "bengaluru",
+
+  "geohash": "tscf4t7kz",          // sample
+  "location": "13.0460,77.5900",   // sample lat,lon for 560056
+
+  "created_at": "2025-11-08T10:15:00Z",
+  "updated_at": "2025-11-08T10:15:00Z"
+}
+
+
+get grocery_products_v1/_count
+POST grocery_products_v1/_doc/zepto_amul_toned_1l
+{
+  "platform": "zepto",
+  "product_id": "amul_toned_1l",
+  "product_name": "Amul Toned Milk",
+  "brand_name": "Amul",
+  "categories": "Dairy",
+  "sub_categories": "Milk",
+  "breadcrumbs": "Home | Dairy | Milk | Amul Toned Milk",
+  "product_url": "https://www.zeptonow.com/pn/amul-toned-milk-1l/pvid/amul_toned_1l",
+  "image_url": "https://cdn.zeptonow.com/amul-toned-milk-1l.png",
+  "quantity": "1 L",
+  "mrp": 72.0,
+  "selling_price": 70.0,
+  "discount_percent": 2.8,
+  "stock_status": "in_stock",
+  "pincode": "400001",
+  "city": "mumbai",
+  "country_of_origin": "india",
+
+  "geohash": "te7u0r2qv",          // sample
+  "location": "18.9388,72.8354",   // sample lat,lon for 400001
+
+  "created_at": "2025-11-08T10:20:00Z",
+  "updated_at": "2025-11-08T10:20:00Z"
+
+}
+
+
