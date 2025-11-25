@@ -1,0 +1,248 @@
+# Extreme Price Difference Scenario - Where 3-Platform Combo WINS!
+
+# Product 1: iPhone Cable - MASSIVELY cheaper on Blinkit
+POST grocery_products_v1/_doc/blinkit_iphone_cable
+{
+  "platform": "blinkit",
+  "product_id": "iphone_cable_1m",
+  "product_name": "Apple Lightning to USB Cable",
+  "brand_name": "Apple",
+  "categories": "Electronics",
+  "sub_categories": "Mobile Accessories",
+  "quantity": "1 m",
+  "mrp": 1900.0,
+  "selling_price": 299.0,
+  "discount_percent": 84.3,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 810030,
+  "inventory": 5,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_iphone_cable
+{
+  "platform": "zepto",
+  "product_id": "iphone_cable_1m",
+  "product_name": "Apple Lightning to USB Cable",
+  "brand_name": "Apple",
+  "categories": "Electronics",
+  "sub_categories": "Mobile Accessories",
+  "quantity": "1 m",
+  "mrp": 1900.0,
+  "selling_price": 1799.0,
+  "discount_percent": 5.3,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 820030,
+  "inventory": 3,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_iphone_cable
+{
+  "platform": "swiggy_instamart",
+  "product_id": "iphone_cable_1m",
+  "product_name": "Apple Lightning to USB Cable",
+  "brand_name": "Apple",
+  "categories": "Electronics",
+  "sub_categories": "Mobile Accessories",
+  "quantity": "1 m",
+  "mrp": 1900.0,
+  "selling_price": 1850.0,
+  "discount_percent": 2.6,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 830030,
+  "inventory": 2,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# Product 2: Premium Chocolate - MASSIVELY cheaper on Zepto
+POST grocery_products_v1/_doc/blinkit_chocolate
+{
+  "platform": "blinkit",
+  "product_id": "lindt_chocolate_100g",
+  "product_name": "Lindt Excellence Dark Chocolate 70%",
+  "brand_name": "Lindt",
+  "categories": "Snacks",
+  "sub_categories": "Chocolates",
+  "quantity": "100 g",
+  "mrp": 450.0,
+  "selling_price": 420.0,
+  "discount_percent": 6.7,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 810031,
+  "inventory": 10,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_chocolate
+{
+  "platform": "zepto",
+  "product_id": "lindt_chocolate_100g",
+  "product_name": "Lindt Excellence Dark Chocolate 70%",
+  "brand_name": "Lindt",
+  "categories": "Snacks",
+  "sub_categories": "Chocolates",
+  "quantity": "100 g",
+  "mrp": 450.0,
+  "selling_price": 199.0,
+  "discount_percent": 55.8,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 820031,
+  "inventory": 8,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_chocolate
+{
+  "platform": "swiggy_instamart",
+  "product_id": "lindt_chocolate_100g",
+  "product_name": "Lindt Excellence Dark Chocolate 70%",
+  "brand_name": "Lindt",
+  "categories": "Snacks",
+  "sub_categories": "Chocolates",
+  "quantity": "100 g",
+  "mrp": 450.0,
+  "selling_price": 440.0,
+  "discount_percent": 2.2,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 830031,
+  "inventory": 6,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# Product 3: Premium Olive Oil - MASSIVELY cheaper on Swiggy
+POST grocery_products_v1/_doc/blinkit_olive_oil
+{
+  "platform": "blinkit",
+  "product_id": "figaro_olive_oil_500ml",
+  "product_name": "Figaro Extra Virgin Olive Oil",
+  "brand_name": "Figaro",
+  "categories": "Staples",
+  "sub_categories": "Edible Oils",
+  "quantity": "500 ml",
+  "mrp": 750.0,
+  "selling_price": 699.0,
+  "discount_percent": 6.8,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 810032,
+  "inventory": 12,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_olive_oil
+{
+  "platform": "zepto",
+  "product_id": "figaro_olive_oil_500ml",
+  "product_name": "Figaro Extra Virgin Olive Oil",
+  "brand_name": "Figaro",
+  "categories": "Staples",
+  "sub_categories": "Edible Oils",
+  "quantity": "500 ml",
+  "mrp": 750.0,
+  "selling_price": 720.0,
+  "discount_percent": 4.0,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 820032,
+  "inventory": 8,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_olive_oil
+{
+  "platform": "swiggy_instamart",
+  "product_id": "figaro_olive_oil_500ml",
+  "product_name": "Figaro Extra Virgin Olive Oil",
+  "brand_name": "Figaro",
+  "categories": "Staples",
+  "sub_categories": "Edible Oils",
+  "quantity": "500 ml",
+  "mrp": 750.0,
+  "selling_price": 449.0,
+  "discount_percent": 40.1,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 830032,
+  "inventory": 15,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# ============================================
+# CALCULATION FOR 3-PLATFORM WIN SCENARIO
+# ============================================
+
+# Cart: iPhone Cable + Lindt Chocolate + Olive Oil
+
+# Single Platform (Zepto):
+# - Cable: ₹1799
+# - Chocolate: ₹199  
+# - Olive Oil: ₹720
+# Subtotal: ₹2718
+# Delivery: FREE
+# Handling: ₹4
+# Platform: ₹2
+# Total: ₹2724
+
+# 3-Platform Combo:
+# - Cable from Blinkit: ₹299 (saves ₹1500!)
+# - Chocolate from Zepto: ₹199 (saves ₹221!)
+# - Olive Oil from Swiggy: ₹449 (saves ₹271!)
+# Subtotal: ₹947 (saves ₹1771 on products!)
+# Delivery: ₹75 (3 platforms)
+# Handling: ₹15
+# Platform: ₹10
+# Total: ₹1047
+
+# 3-PLATFORM WINS BY ₹1677! 🎯

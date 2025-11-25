@@ -1,0 +1,857 @@
+# Elasticsearch Sample Data for Location: 28.4614, 77.2981 (Geohash: ttncyvnxz)
+# This represents products available in your area across Blinkit, Zepto, and Swiggy Instamart
+
+# ====================================
+# DAIRY PRODUCTS
+# ====================================
+
+# Amul Paneer - Available on all platforms
+POST grocery_products_v1/_doc/blinkit_amul_paneer_200g
+{
+  "platform": "blinkit",
+  "product_id": "amul_paneer_200g",
+  "product_name": "Amul Paneer",
+  "brand_name": "Amul",
+  "categories": "Dairy",
+  "sub_categories": "Paneer",
+  "breadcrumbs": "Home > Dairy > Paneer > Amul Paneer",
+  "product_url": "https://blinkit.com/prn/amul-paneer/prid/12345",
+  "image_url": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/app/images/products/sliding_image/12345a.jpg",
+  "quantity": "200 g",
+  "mrp": 95.0,
+  "selling_price": 89.0,
+  "discount_percent": 6.3,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 810001,
+  "inventory": 25,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_amul_paneer_200g
+{
+  "platform": "zepto",
+  "product_id": "amul_paneer_200g",
+  "product_name": "Amul Paneer",
+  "brand_name": "Amul",
+  "categories": "Dairy",
+  "sub_categories": "Paneer",
+  "product_url": "https://www.zeptonow.com/pn/amul-paneer-200g/pvid/amul_paneer_200g",
+  "image_url": "https://cdn.zeptonow.com/production/amul-paneer-200g.jpg",
+  "quantity": "200 g",
+  "mrp": 95.0,
+  "selling_price": 92.0,
+  "discount_percent": 3.2,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 820001,
+  "inventory": 18,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_amul_paneer_200g
+{
+  "platform": "swiggy_instamart",
+  "product_id": "amul_paneer_200g",
+  "product_name": "Amul Paneer",
+  "brand_name": "Amul",
+  "categories": "Dairy",
+  "sub_categories": "Paneer",
+  "product_url": "https://www.swiggy.com/instamart/item/amul-paneer-200g",
+  "image_url": "https://instamart-media-assets.swiggy.com/swiggy/image/upload/amul-paneer.png",
+  "quantity": "200 g",
+  "mrp": 95.0,
+  "selling_price": 90.0,
+  "discount_percent": 5.3,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 830001,
+  "inventory": 30,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# Mother Dairy Paneer - Zepto out of stock
+POST grocery_products_v1/_doc/blinkit_mother_dairy_paneer_200g
+{
+  "platform": "blinkit",
+  "product_id": "mother_dairy_paneer_200g",
+  "product_name": "Mother Dairy Paneer",
+  "brand_name": "Mother Dairy",
+  "categories": "Dairy",
+  "sub_categories": "Paneer",
+  "product_url": "https://blinkit.com/prn/mother-dairy-paneer/prid/12346",
+  "image_url": "https://cdn.grofers.com/mother-dairy-paneer.jpg",
+  "quantity": "200 g",
+  "mrp": 100.0,
+  "selling_price": 95.0,
+  "discount_percent": 5.0,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 810002,
+  "inventory": 15,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_mother_dairy_paneer_200g
+{
+  "platform": "zepto",
+  "product_id": "mother_dairy_paneer_200g",
+  "product_name": "Mother Dairy Paneer",
+  "brand_name": "Mother Dairy",
+  "categories": "Dairy",
+  "sub_categories": "Paneer",
+  "product_url": "https://www.zeptonow.com/pn/mother-dairy-paneer-200g",
+  "image_url": "https://cdn.zeptonow.com/mother-dairy-paneer.jpg",
+  "quantity": "200 g",
+  "mrp": 100.0,
+  "selling_price": 98.0,
+  "discount_percent": 2.0,
+  "stock_status": "out_of_stock",
+  "availability": false,
+  "merchant_id": 820002,
+  "inventory": 0,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_mother_dairy_paneer_200g
+{
+  "platform": "swiggy_instamart",
+  "product_id": "mother_dairy_paneer_200g",
+  "product_name": "Mother Dairy Paneer",
+  "brand_name": "Mother Dairy",
+  "categories": "Dairy",
+  "sub_categories": "Paneer",
+  "product_url": "https://www.swiggy.com/instamart/item/mother-dairy-paneer",
+  "image_url": "https://instamart-media-assets.swiggy.com/mother-dairy-paneer.png",
+  "quantity": "200 g",
+  "mrp": 100.0,
+  "selling_price": 96.0,
+  "discount_percent": 4.0,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 830002,
+  "inventory": 20,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# Amul Milk - Full Fat 1L
+POST grocery_products_v1/_doc/blinkit_amul_milk_1l
+{
+  "platform": "blinkit",
+  "product_id": "amul_milk_full_fat_1l",
+  "product_name": "Amul Taaza Toned Fresh Milk",
+  "brand_name": "Amul",
+  "categories": "Dairy",
+  "sub_categories": "Milk",
+  "breadcrumbs": "Home > Dairy > Milk > Amul Taaza",
+  "product_url": "https://blinkit.com/prn/amul-taaza-milk/prid/12347",
+  "image_url": "https://cdn.grofers.com/amul-taaza-milk.jpg",
+  "quantity": "1 L",
+  "mrp": 62.0,
+  "selling_price": 62.0,
+  "discount_percent": 0.0,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 810003,
+  "inventory": 50,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_amul_milk_1l
+{
+  "platform": "zepto",
+  "product_id": "amul_milk_full_fat_1l",
+  "product_name": "Amul Taaza Toned Fresh Milk",
+  "brand_name": "Amul",
+  "categories": "Dairy",
+  "sub_categories": "Milk",
+  "product_url": "https://www.zeptonow.com/pn/amul-taaza-milk-1l",
+  "image_url": "https://cdn.zeptonow.com/amul-taaza-milk.jpg",
+  "quantity": "1 L",
+  "mrp": 62.0,
+  "selling_price": 60.0,
+  "discount_percent": 3.2,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 820003,
+  "inventory": 40,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_amul_milk_1l
+{
+  "platform": "swiggy_instamart",
+  "product_id": "amul_milk_full_fat_1l",
+  "product_name": "Amul Taaza Toned Fresh Milk",
+  "brand_name": "Amul",
+  "categories": "Dairy",
+  "sub_categories": "Milk",
+  "product_url": "https://www.swiggy.com/instamart/item/amul-taaza-milk",
+  "image_url": "https://instamart-media-assets.swiggy.com/amul-taaza.png",
+  "quantity": "1 L",
+  "mrp": 62.0,
+  "selling_price": 61.0,
+  "discount_percent": 1.6,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 830003,
+  "inventory": 45,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# ====================================
+# BREAD & BAKERY
+# ====================================
+
+# Britannia Bread - Blinkit out of stock
+POST grocery_products_v1/_doc/blinkit_britannia_bread
+{
+  "platform": "blinkit",
+  "product_id": "britannia_bread_white_400g",
+  "product_name": "Britannia Bread - White",
+  "brand_name": "Britannia",
+  "categories": "Bakery",
+  "sub_categories": "Bread",
+  "product_url": "https://blinkit.com/prn/britannia-bread/prid/12348",
+  "image_url": "https://cdn.grofers.com/britannia-bread.jpg",
+  "quantity": "400 g",
+  "mrp": 45.0,
+  "selling_price": 45.0,
+  "discount_percent": 0.0,
+  "stock_status": "out_of_stock",
+  "availability": false,
+  "merchant_id": 810004,
+  "inventory": 0,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_britannia_bread
+{
+  "platform": "zepto",
+  "product_id": "britannia_bread_white_400g",
+  "product_name": "Britannia Bread - White",
+  "brand_name": "Britannia",
+  "categories": "Bakery",
+  "sub_categories": "Bread",
+  "product_url": "https://www.zeptonow.com/pn/britannia-bread-white",
+  "image_url": "https://cdn.zeptonow.com/britannia-bread.jpg",
+  "quantity": "400 g",
+  "mrp": 45.0,
+  "selling_price": 42.0,
+  "discount_percent": 6.7,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 820004,
+  "inventory": 35,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_britannia_bread
+{
+  "platform": "swiggy_instamart",
+  "product_id": "britannia_bread_white_400g",
+  "product_name": "Britannia Bread - White",
+  "brand_name": "Britannia",
+  "categories": "Bakery",
+  "sub_categories": "Bread",
+  "product_url": "https://www.swiggy.com/instamart/item/britannia-bread",
+  "image_url": "https://instamart-media-assets.swiggy.com/britannia-bread.png",
+  "quantity": "400 g",
+  "mrp": 45.0,
+  "selling_price": 44.0,
+  "discount_percent": 2.2,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 830004,
+  "inventory": 28,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# ====================================
+# SPREADS & CONDIMENTS
+# ====================================
+
+# Kissan Mixed Fruit Jam
+POST grocery_products_v1/_doc/blinkit_kissan_jam
+{
+  "platform": "blinkit",
+  "product_id": "kissan_mixed_fruit_jam_500g",
+  "product_name": "Kissan Mixed Fruit Jam",
+  "brand_name": "Kissan",
+  "categories": "Spreads & Dips",
+  "sub_categories": "Jam",
+  "breadcrumbs": "Home > Breakfast > Spreads > Kissan Jam",
+  "product_url": "https://blinkit.com/prn/kissan-jam/prid/12349",
+  "image_url": "https://cdn.grofers.com/kissan-jam.jpg",
+  "quantity": "500 g",
+  "mrp": 180.0,
+  "selling_price": 165.0,
+  "discount_percent": 8.3,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 810005,
+  "inventory": 12,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_kissan_jam
+{
+  "platform": "zepto",
+  "product_id": "kissan_mixed_fruit_jam_500g",
+  "product_name": "Kissan Mixed Fruit Jam",
+  "brand_name": "Kissan",
+  "categories": "Spreads & Dips",
+  "sub_categories": "Jam",
+  "product_url": "https://www.zeptonow.com/pn/kissan-jam-500g",
+  "image_url": "https://cdn.zeptonow.com/kissan-jam.jpg",
+  "quantity": "500 g",
+  "mrp": 180.0,
+  "selling_price": 170.0,
+  "discount_percent": 5.6,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 820005,
+  "inventory": 10,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_kissan_jam
+{
+  "platform": "swiggy_instamart",
+  "product_id": "kissan_mixed_fruit_jam_500g",
+  "product_name": "Kissan Mixed Fruit Jam",
+  "brand_name": "Kissan",
+  "categories": "Spreads & Dips",
+  "sub_categories": "Jam",
+  "product_url": "https://www.swiggy.com/instamart/item/kissan-jam",
+  "image_url": "https://instamart-media-assets.swiggy.com/kissan-jam.png",
+  "quantity": "500 g",
+  "mrp": 180.0,
+  "selling_price": 168.0,
+  "discount_percent": 6.7,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 830005,
+  "inventory": 15,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# ====================================
+# SNACKS
+# ====================================
+
+# Lay's Chips - Different prices
+POST grocery_products_v1/_doc/blinkit_lays_chips
+{
+  "platform": "blinkit",
+  "product_id": "lays_american_cream_52g",
+  "product_name": "Lay's American Cream & Onion Chips",
+  "brand_name": "Lay's",
+  "categories": "Snacks",
+  "sub_categories": "Chips",
+  "product_url": "https://blinkit.com/prn/lays-chips/prid/12350",
+  "image_url": "https://cdn.grofers.com/lays-chips.jpg",
+  "quantity": "52 g",
+  "mrp": 20.0,
+  "selling_price": 20.0,
+  "discount_percent": 0.0,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 810006,
+  "inventory": 100,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_lays_chips
+{
+  "platform": "zepto",
+  "product_id": "lays_american_cream_52g",
+  "product_name": "Lay's American Cream & Onion Chips",
+  "brand_name": "Lay's",
+  "categories": "Snacks",
+  "sub_categories": "Chips",
+  "product_url": "https://www.zeptonow.com/pn/lays-chips-52g",
+  "image_url": "https://cdn.zeptonow.com/lays-chips.jpg",
+  "quantity": "52 g",
+  "mrp": 20.0,
+  "selling_price": 18.0,
+  "discount_percent": 10.0,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 820006,
+  "inventory": 80,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_lays_chips
+{
+  "platform": "swiggy_instamart",
+  "product_id": "lays_american_cream_52g",
+  "product_name": "Lay's American Cream & Onion Chips",
+  "brand_name": "Lay's",
+  "categories": "Snacks",
+  "sub_categories": "Chips",
+  "product_url": "https://www.swiggy.com/instamart/item/lays-chips",
+  "image_url": "https://instamart-media-assets.swiggy.com/lays-chips.png",
+  "quantity": "52 g",
+  "mrp": 20.0,
+  "selling_price": 19.0,
+  "discount_percent": 5.0,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 830006,
+  "inventory": 90,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# ====================================
+# BEVERAGES
+# ====================================
+
+# Coca Cola 750ml - Swiggy out of stock
+POST grocery_products_v1/_doc/blinkit_coca_cola
+{
+  "platform": "blinkit",
+  "product_id": "coca_cola_750ml",
+  "product_name": "Coca Cola Soft Drink",
+  "brand_name": "Coca Cola",
+  "categories": "Beverages",
+  "sub_categories": "Soft Drinks",
+  "product_url": "https://blinkit.com/prn/coca-cola/prid/12351",
+  "image_url": "https://cdn.grofers.com/coca-cola.jpg",
+  "quantity": "750 ml",
+  "mrp": 40.0,
+  "selling_price": 38.0,
+  "discount_percent": 5.0,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 810007,
+  "inventory": 60,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_coca_cola
+{
+  "platform": "zepto",
+  "product_id": "coca_cola_750ml",
+  "product_name": "Coca Cola Soft Drink",
+  "brand_name": "Coca Cola",
+  "categories": "Beverages",
+  "sub_categories": "Soft Drinks",
+  "product_url": "https://www.zeptonow.com/pn/coca-cola-750ml",
+  "image_url": "https://cdn.zeptonow.com/coca-cola.jpg",
+  "quantity": "750 ml",
+  "mrp": 40.0,
+  "selling_price": 36.0,
+  "discount_percent": 10.0,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 820007,
+  "inventory": 50,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_coca_cola
+{
+  "platform": "swiggy_instamart",
+  "product_id": "coca_cola_750ml",
+  "product_name": "Coca Cola Soft Drink",
+  "brand_name": "Coca Cola",
+  "categories": "Beverages",
+  "sub_categories": "Soft Drinks",
+  "product_url": "https://www.swiggy.com/instamart/item/coca-cola",
+  "image_url": "https://instamart-media-assets.swiggy.com/coca-cola.png",
+  "quantity": "750 ml",
+  "mrp": 40.0,
+  "selling_price": 40.0,
+  "discount_percent": 0.0,
+  "stock_status": "out_of_stock",
+  "availability": false,
+  "merchant_id": 830007,
+  "inventory": 0,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# ====================================
+# STAPLES
+# ====================================
+
+# Tata Salt
+POST grocery_products_v1/_doc/blinkit_tata_salt
+{
+  "platform": "blinkit",
+  "product_id": "tata_salt_1kg",
+  "product_name": "Tata Salt",
+  "brand_name": "Tata",
+  "categories": "Staples",
+  "sub_categories": "Salt & Sugar",
+  "product_url": "https://blinkit.com/prn/tata-salt/prid/12352",
+  "image_url": "https://cdn.grofers.com/tata-salt.jpg",
+  "quantity": "1 kg",
+  "mrp": 22.0,
+  "selling_price": 22.0,
+  "discount_percent": 0.0,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 810008,
+  "inventory": 200,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_tata_salt
+{
+  "platform": "zepto",
+  "product_id": "tata_salt_1kg",
+  "product_name": "Tata Salt",
+  "brand_name": "Tata",
+  "categories": "Staples",
+  "sub_categories": "Salt & Sugar",
+  "product_url": "https://www.zeptonow.com/pn/tata-salt-1kg",
+  "image_url": "https://cdn.zeptonow.com/tata-salt.jpg",
+  "quantity": "1 kg",
+  "mrp": 22.0,
+  "selling_price": 21.0,
+  "discount_percent": 4.5,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 820008,
+  "inventory": 150,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_tata_salt
+{
+  "platform": "swiggy_instamart",
+  "product_id": "tata_salt_1kg",
+  "product_name": "Tata Salt",
+  "brand_name": "Tata",
+  "categories": "Staples",
+  "sub_categories": "Salt & Sugar",
+  "product_url": "https://www.swiggy.com/instamart/item/tata-salt",
+  "image_url": "https://instamart-media-assets.swiggy.com/tata-salt.png",
+  "quantity": "1 kg",
+  "mrp": 22.0,
+  "selling_price": 22.0,
+  "discount_percent": 0.0,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 830008,
+  "inventory": 180,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# India Gate Basmati Rice
+POST grocery_products_v1/_doc/blinkit_india_gate_rice
+{
+  "platform": "blinkit",
+  "product_id": "india_gate_basmati_5kg",
+  "product_name": "India Gate Basmati Rice Classic",
+  "brand_name": "India Gate",
+  "categories": "Staples",
+  "sub_categories": "Rice",
+  "product_url": "https://blinkit.com/prn/india-gate-rice/prid/12353",
+  "image_url": "https://cdn.grofers.com/india-gate-rice.jpg",
+  "quantity": "5 kg",
+  "mrp": 450.0,
+  "selling_price": 420.0,
+  "discount_percent": 6.7,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 810009,
+  "inventory": 8,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_india_gate_rice
+{
+  "platform": "zepto",
+  "product_id": "india_gate_basmati_5kg",
+  "product_name": "India Gate Basmati Rice Classic",
+  "brand_name": "India Gate",
+  "categories": "Staples",
+  "sub_categories": "Rice",
+  "product_url": "https://www.zeptonow.com/pn/india-gate-rice-5kg",
+  "image_url": "https://cdn.zeptonow.com/india-gate-rice.jpg",
+  "quantity": "5 kg",
+  "mrp": 450.0,
+  "selling_price": 415.0,
+  "discount_percent": 7.8,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 820009,
+  "inventory": 10,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_india_gate_rice
+{
+  "platform": "swiggy_instamart",
+  "product_id": "india_gate_basmati_5kg",
+  "product_name": "India Gate Basmati Rice Classic",
+  "brand_name": "India Gate",
+  "categories": "Staples",
+  "sub_categories": "Rice",
+  "product_url": "https://www.swiggy.com/instamart/item/india-gate-rice",
+  "image_url": "https://instamart-media-assets.swiggy.com/india-gate-rice.png",
+  "quantity": "5 kg",
+  "mrp": 450.0,
+  "selling_price": 425.0,
+  "discount_percent": 5.6,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 830009,
+  "inventory": 12,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# ====================================
+# EGGS
+# ====================================
+
+# Brown Eggs - Testing combo pricing
+POST grocery_products_v1/_doc/blinkit_brown_eggs
+{
+  "platform": "blinkit",
+  "product_id": "brown_eggs_6pc",
+  "product_name": "Farm Fresh Brown Eggs",
+  "brand_name": "Farm Fresh",
+  "categories": "Eggs & Meat",
+  "sub_categories": "Eggs",
+  "product_url": "https://blinkit.com/prn/brown-eggs/prid/12354",
+  "image_url": "https://cdn.grofers.com/brown-eggs.jpg",
+  "quantity": "6 pieces",
+  "mrp": 55.0,
+  "selling_price": 52.0,
+  "discount_percent": 5.5,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 810010,
+  "inventory": 40,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_brown_eggs
+{
+  "platform": "zepto",
+  "product_id": "brown_eggs_6pc",
+  "product_name": "Farm Fresh Brown Eggs",
+  "brand_name": "Farm Fresh",
+  "categories": "Eggs & Meat",
+  "sub_categories": "Eggs",
+  "product_url": "https://www.zeptonow.com/pn/brown-eggs-6pc",
+  "image_url": "https://cdn.zeptonow.com/brown-eggs.jpg",
+  "quantity": "6 pieces",
+  "mrp": 55.0,
+  "selling_price": 48.0,
+  "discount_percent": 12.7,
+  "stock_status": "in_stock",
+  "availability": true,
+  "merchant_id": 820010,
+  "inventory": 30,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_brown_eggs
+{
+  "platform": "swiggy_instamart",
+  "product_id": "brown_eggs_6pc",
+  "product_name": "Farm Fresh Brown Eggs",
+  "brand_name": "Farm Fresh",
+  "categories": "Eggs & Meat",
+  "sub_categories": "Eggs",
+  "product_url": "https://www.swiggy.com/instamart/item/brown-eggs",
+  "image_url": "https://instamart-media-assets.swiggy.com/brown-eggs.png",
+  "quantity": "6 pieces",
+  "mrp": 55.0,
+  "selling_price": 55.0,
+  "discount_percent": 0.0,
+  "stock_status": "out_of_stock",
+  "availability": false,
+  "merchant_id": 830010,
+  "inventory": 0,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvnxz",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# ====================================
+# VERIFY DATA
+# ====================================
+
+# Check total documents for this geohash
+GET grocery_products_v1/_count
+{
+  "query": {
+    "term": {
+      "geohash": "ttncyvnxz"
+    }
+  }
+}
+
+# Search test
+GET grocery_products_v1/_search
+{
+  "query": {
+    "bool": {
+      "must": {
+        "multi_match": {
+          "query": "paneer",
+          "fields": ["product_name^3", "brand_name"]
+        }
+      },
+      "filter": {
+        "term": {
+          "geohash": "ttncyvnxz"
+        }
+      }
+    }
+  }
+}

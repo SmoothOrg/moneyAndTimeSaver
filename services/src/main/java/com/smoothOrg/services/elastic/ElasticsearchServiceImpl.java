@@ -185,7 +185,8 @@ public class ElasticsearchServiceImpl implements ElasticsearchService {
     private List<Map<String, Object>> executeSearch(String index, Query query, Integer size) throws IOException {
         SearchRequest.Builder requestBuilder = new SearchRequest.Builder()
                 .index(index)
-                .query(query);
+                .query(query)
+                .minScore(10.0);  // Filter out weak matches (score < 10)
 
         if (size != null && size > 0) {
             requestBuilder.size(size);

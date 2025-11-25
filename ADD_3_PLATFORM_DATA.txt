@@ -1,0 +1,258 @@
+# ============================================
+# 3-PLATFORM COMBO TEST DATA
+# Add these to Elasticsearch via Kibana Dev Tools
+# ============================================
+
+# Product 1: Maggi Noodles - CHEAPEST on Blinkit (₹12)
+POST grocery_products_v1/_doc/blinkit_maggi
+{
+  "platform": "blinkit",
+  "product_id": "maggi_masala_70g",
+  "product_name": "Maggi 2-Minute Noodles Masala",
+  "brand_name": "Maggi",
+  "categories": "Snacks",
+  "sub_categories": "Instant Noodles",
+  "quantity": "70 g",
+  "mrp": 14.0,
+  "selling_price": 12.0,
+  "discount_percent": 14.3,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 810020,
+  "inventory": 50,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_maggi
+{
+  "platform": "zepto",
+  "product_id": "maggi_masala_70g",
+  "product_name": "Maggi 2-Minute Noodles Masala",
+  "brand_name": "Maggi",
+  "categories": "Snacks",
+  "sub_categories": "Instant Noodles",
+  "quantity": "70 g",
+  "mrp": 14.0,
+  "selling_price": 20.0,
+  "discount_percent": 0.0,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 820020,
+  "inventory": 40,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_maggi
+{
+  "platform": "swiggy_instamart",
+  "product_id": "maggi_masala_70g",
+  "product_name": "Maggi 2-Minute Noodles Masala",
+  "brand_name": "Maggi",
+  "categories": "Snacks",
+  "sub_categories": "Instant Noodles",
+  "quantity": "70 g",
+  "mrp": 14.0,
+  "selling_price": 18.0,
+  "discount_percent": 0.0,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 830020,
+  "inventory": 45,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# Product 2: Dove Soap - CHEAPEST on Zepto (₹55)
+POST grocery_products_v1/_doc/blinkit_dove_soap
+{
+  "platform": "blinkit",
+  "product_id": "dove_soap_125g",
+  "product_name": "Dove Cream Beauty Bathing Bar",
+  "brand_name": "Dove",
+  "categories": "Personal Care",
+  "sub_categories": "Bath & Hand Wash",
+  "quantity": "125 g",
+  "mrp": 65.0,
+  "selling_price": 75.0,
+  "discount_percent": 0.0,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 810021,
+  "inventory": 30,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_dove_soap
+{
+  "platform": "zepto",
+  "product_id": "dove_soap_125g",
+  "product_name": "Dove Cream Beauty Bathing Bar",
+  "brand_name": "Dove",
+  "categories": "Personal Care",
+  "sub_categories": "Bath & Hand Wash",
+  "quantity": "125 g",
+  "mrp": 65.0,
+  "selling_price": 55.0,
+  "discount_percent": 15.4,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 820021,
+  "inventory": 25,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_dove_soap
+{
+  "platform": "swiggy_instamart",
+  "product_id": "dove_soap_125g",
+  "product_name": "Dove Cream Beauty Bathing Bar",
+  "brand_name": "Dove",
+  "categories": "Personal Care",
+  "sub_categories": "Bath & Hand Wash",
+  "quantity": "125 g",
+  "mrp": 65.0,
+  "selling_price": 70.0,
+  "discount_percent": 0.0,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 830021,
+  "inventory": 20,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# Product 3: Colgate Toothpaste - CHEAPEST on Swiggy (₹98)
+POST grocery_products_v1/_doc/blinkit_colgate
+{
+  "platform": "blinkit",
+  "product_id": "colgate_strong_teeth_200g",
+  "product_name": "Colgate Strong Teeth Toothpaste",
+  "brand_name": "Colgate",
+  "categories": "Personal Care",
+  "sub_categories": "Oral Care",
+  "quantity": "200 g",
+  "mrp": 110.0,
+  "selling_price": 105.0,
+  "discount_percent": 4.5,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 810022,
+  "inventory": 35,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_colgate
+{
+  "platform": "zepto",
+  "product_id": "colgate_strong_teeth_200g",
+  "product_name": "Colgate Strong Teeth Toothpaste",
+  "brand_name": "Colgate",
+  "categories": "Personal Care",
+  "sub_categories": "Oral Care",
+  "quantity": "200 g",
+  "mrp": 110.0,
+  "selling_price": 108.0,
+  "discount_percent": 1.8,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 820022,
+  "inventory": 30,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_colgate
+{
+  "platform": "swiggy_instamart",
+  "product_id": "colgate_strong_teeth_200g",
+  "product_name": "Colgate Strong Teeth Toothpaste",
+  "brand_name": "Colgate",
+  "categories": "Personal Care",
+  "sub_categories": "Oral Care",
+  "quantity": "200 g",
+  "mrp": 110.0,
+  "selling_price": 98.0,
+  "discount_percent": 10.9,
+  "availability": true,
+  "stock_status": "in_stock",
+  "merchant_id": 830022,
+  "inventory": 40,
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# ============================================
+# VERIFY DATA LOADED
+# ============================================
+
+GET grocery_products_v1/_count
+{
+  "query": {
+    "term": {
+      "geohash": "ttncyvn"
+    }
+  }
+}
+
+# Should show 36 total documents (12 original + 9 new = 21 products × 3 platforms = 36 entries... wait that's wrong)
+# Actually: Original 9 products + 3 new products = 12 products × 3 platforms each = 36 total
+
+# Test search
+GET grocery_products_v1/_search
+{
+  "query": {
+    "bool": {
+      "must": {
+        "match": {
+          "product_name": "maggi"
+        }
+      },
+      "filter": {
+        "term": {
+          "geohash": "ttncyvn"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+# Update existing data to use 7-character geohash for better coverage
+
+# Your coordinates: 28.461406, 77.297996
+# 9-char geohash: ttncyvnxt (very precise - ~5m area)
+# 7-char geohash: ttncyvn (broader - ~150m area) ✅
+
+POST grocery_products_v1/_update_by_query
+{
+  "script": {
+    "source": "ctx._source.geohash = ctx._source.geohash.substring(0, 7)",
+    "lang": "painless"
+  },
+  "query": {
+    "match_all": {}
+  }
+}
+
+# Verify - should show ttncyvn
+GET grocery_products_v1/_search
+{
+  "query": {
+    "term": {
+      "geohash": "ttncyvn"
+    }
+  },
+  "size": 1
+}
+
+# Test your current location
+# Lat: 28.461406, Lon: 77.297996 → Should give geohash: ttncyvn

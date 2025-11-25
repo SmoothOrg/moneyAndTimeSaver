@@ -1,0 +1,35 @@
+# Quick Update Script - Change geohash from ttncyvnxz to ttncyvnxt
+
+# Delete old data (optional)
+POST grocery_products_v1/_delete_by_query
+{
+  "query": {
+    "term": {
+      "geohash": "ttncyvnxz"
+    }
+  }
+}
+
+# Or just update the geohash in existing documents
+POST grocery_products_v1/_update_by_query
+{
+  "script": {
+    "source": "ctx._source.geohash = 'ttncyvnxt'; ctx._source.location = '28.4614,77.2980'",
+    "lang": "painless"
+  },
+  "query": {
+    "term": {
+      "geohash": "ttncyvnxz"
+    }
+  }
+}
+
+# Verify
+GET grocery_products_v1/_count
+{
+  "query": {
+    "term": {
+      "geohash": "ttncyvnxt"
+    }
+  }
+}

@@ -1,0 +1,203 @@
+# Sample Data for 3-Platform Combo Scenario
+# This creates a situation where buying from 3 different platforms is cheapest!
+
+# Product 1: Maggi Noodles - Cheapest on Blinkit
+POST grocery_products_v1/_doc/blinkit_maggi
+{
+  "platform": "blinkit",
+  "product_id": "maggi_masala_70g",
+  "product_name": "Maggi 2-Minute Noodles Masala",
+  "brand_name": "Maggi",
+  "categories": "Snacks",
+  "sub_categories": "Instant Noodles",
+  "quantity": "70 g",
+  "mrp": 14.0,
+  "selling_price": 12.0,
+  "discount_percent": 14.3,
+  "availability": true,
+  "stock_status": "in_stock",
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_maggi
+{
+  "platform": "zepto",
+  "product_id": "maggi_masala_70g",
+  "product_name": "Maggi 2-Minute Noodles Masala",
+  "brand_name": "Maggi",
+  "categories": "Snacks",
+  "sub_categories": "Instant Noodles",
+  "quantity": "70 g",
+  "mrp": 14.0,
+  "selling_price": 20.0,
+  "discount_percent": 0.0,
+  "availability": true,
+  "stock_status": "in_stock",
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_maggi
+{
+  "platform": "swiggy_instamart",
+  "product_id": "maggi_masala_70g",
+  "product_name": "Maggi 2-Minute Noodles Masala",
+  "brand_name": "Maggi",
+  "categories": "Snacks",
+  "sub_categories": "Instant Noodles",
+  "quantity": "70 g",
+  "mrp": 14.0,
+  "selling_price": 18.0,
+  "discount_percent": 0.0,
+  "availability": true,
+  "stock_status": "in_stock",
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# Product 2: Dove Soap - Cheapest on Zepto
+POST grocery_products_v1/_doc/blinkit_dove_soap
+{
+  "platform": "blinkit",
+  "product_id": "dove_soap_125g",
+  "product_name": "Dove Cream Beauty Bathing Bar",
+  "brand_name": "Dove",
+  "categories": "Personal Care",
+  "sub_categories": "Bath & Hand Wash",
+  "quantity": "125 g",
+  "mrp": 65.0,
+  "selling_price": 75.0,
+  "discount_percent": 0.0,
+  "availability": true,
+  "stock_status": "in_stock",
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_dove_soap
+{
+  "platform": "zepto",
+  "product_id": "dove_soap_125g",
+  "product_name": "Dove Cream Beauty Bathing Bar",
+  "brand_name": "Dove",
+  "categories": "Personal Care",
+  "sub_categories": "Bath & Hand Wash",
+  "quantity": "125 g",
+  "mrp": 65.0,
+  "selling_price": 55.0,
+  "discount_percent": 15.4,
+  "availability": true,
+  "stock_status": "in_stock",
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_dove_soap
+{
+  "platform": "swiggy_instamart",
+  "product_id": "dove_soap_125g",
+  "product_name": "Dove Cream Beauty Bathing Bar",
+  "brand_name": "Dove",
+  "categories": "Personal Care",
+  "sub_categories": "Bath & Hand Wash",
+  "quantity": "125 g",
+  "mrp": 65.0,
+  "selling_price": 70.0,
+  "discount_percent": 0.0,
+  "availability": true,
+  "stock_status": "in_stock",
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+# Product 3: Colgate Toothpaste - Cheapest on Swiggy
+POST grocery_products_v1/_doc/blinkit_colgate
+{
+  "platform": "blinkit",
+  "product_id": "colgate_strong_teeth_200g",
+  "product_name": "Colgate Strong Teeth Toothpaste",
+  "brand_name": "Colgate",
+  "categories": "Personal Care",
+  "sub_categories": "Oral Care",
+  "quantity": "200 g",
+  "mrp": 110.0,
+  "selling_price": 105.0,
+  "discount_percent": 4.5,
+  "availability": true,
+  "stock_status": "in_stock",
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/zepto_colgate
+{
+  "platform": "zepto",
+  "product_id": "colgate_strong_teeth_200g",
+  "product_name": "Colgate Strong Teeth Toothpaste",
+  "brand_name": "Colgate",
+  "categories": "Personal Care",
+  "sub_categories": "Oral Care",
+  "quantity": "200 g",
+  "mrp": 110.0,
+  "selling_price": 108.0,
+  "discount_percent": 1.8,
+  "availability": true,
+  "stock_status": "in_stock",
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}
+
+POST grocery_products_v1/_doc/swiggy_colgate
+{
+  "platform": "swiggy_instamart",
+  "product_id": "colgate_strong_teeth_200g",
+  "product_name": "Colgate Strong Teeth Toothpaste",
+  "brand_name": "Colgate",
+  "categories": "Personal Care",
+  "sub_categories": "Oral Care",
+  "quantity": "200 g",
+  "mrp": 110.0,
+  "selling_price": 98.0,
+  "discount_percent": 10.9,
+  "availability": true,
+  "stock_status": "in_stock",
+  "pincode": "121002",
+  "city": "faridabad",
+  "geohash": "ttncyvn",
+  "location": "28.4614,77.2981",
+  "created_at": "2025-11-17T10:00:00Z",
+  "updated_at": "2025-11-17T10:00:00Z"
+}

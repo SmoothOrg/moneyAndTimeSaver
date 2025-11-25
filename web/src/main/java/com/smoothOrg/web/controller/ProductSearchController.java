@@ -1,13 +1,11 @@
 package com.smoothOrg.web.controller;
 
 import com.smoothOrg.services.elastic.ElasticsearchService;
+import com.smoothOrg.services.util.GeohashUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -42,6 +40,27 @@ public class ProductSearchController {
             @RequestParam("geohash") String geohash,
             @RequestParam(value = "size", required = false) Integer size,
             @RequestParam(value = "index", required = false) String index) throws IOException {
+        String targetIndex = resolveIndex(index);
+        List<Map<String, Object>> results = elasticsearchService.searchProductsByGeohash(targetIndex, query, geohash, size);
+        return ResponseEntity.ok(new ProductSearchResponse(targetIndex, query, geohash, results));
+    }
+
+    /**
+     * Search products by location (latitude/longitude).
+     * Automatically converts lat/long to geohash.
+     */
+    @GetMapping("/search/by-location")
+    public ResponseEntity<ProductSearchResponse> searchProductsByLocation(
+            @RequestParam("query") String query,
+            @RequestParam("latitude") double latitude,
+            @RequestParam("longitude") double longitude,
+            @RequestParam(value = "precision", defaultValue = "7") int precision,
+            @RequestParam(value = "size", required = false) Integer size,
+            @RequestParam(value = "index", required = false) String index) throws IOException {
+        
+        // Convert lat/long to geohash with 7-char precision (~150m area)
+        String geohash = GeohashUtils.encode(latitude, longitude, precision);
+        
         String targetIndex = resolveIndex(index);
         List<Map<String, Object>> results = elasticsearchService.searchProductsByGeohash(targetIndex, query, geohash, size);
         return ResponseEntity.ok(new ProductSearchResponse(targetIndex, query, geohash, results));
